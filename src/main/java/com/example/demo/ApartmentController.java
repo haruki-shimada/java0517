@@ -47,4 +47,16 @@ public class ApartmentController {
         service.deleteById(id);
         return;
     }
+
+    @PostMapping("/apartments/{id}/update")
+    @CrossOrigin
+    public ApartmentInterface updateApartment(Apartment apart) {
+        System.out.println("/apartments/update");
+        if (service.getById(apart.getId()) != null) {
+            service.create(apart);
+        } else {
+            throw new Error("ID not found");
+        }
+        return apart;
+    }
 }
