@@ -7,40 +7,46 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.data.ApartmentInterface;
 import com.example.demo.data.ApartmentService;
 import com.example.demo.model.Apartment;
 
+import jakarta.transaction.Transactional;
+
 @RestController
+@RequestMapping("/apartments")
 public class ApartmentController {
 
     @Autowired
     ApartmentService service;
 
-    @GetMapping("/apartments")
+    @GetMapping("/")
     @CrossOrigin
     public List<? extends ApartmentInterface> apartments() {
         System.out.println("/apartments");
         return service.getAll();
     }
 
-    @GetMapping("/apartments/{id}")
+    @GetMapping("/{id}")
     @CrossOrigin
     public ApartmentInterface apartmentById(@PathVariable int id) {
         System.out.println("/apartments/findById");
         return service.getById(id);
     }
 
-    @PostMapping("/apartments/create")
+    @Transactional
+    @PostMapping("/create")
     @CrossOrigin
     public ApartmentInterface createApartment(Apartment apart) {
         System.out.println("/apartments/create");
         return service.create(apart);
     }
 
-    @PostMapping("/apartments/{id}/delete")
+    @Transactional
+    @PostMapping("/{id}/delete")
     @CrossOrigin
     public void deleteApartment(@PathVariable int id) {
         System.out.println("/apartments/id/delete");
@@ -48,7 +54,8 @@ public class ApartmentController {
         return;
     }
 
-    @PostMapping("/apartments/{id}/update")
+    @Transactional
+    @PostMapping("/{id}/update")
     @CrossOrigin
     public ApartmentInterface updateApartment(Apartment apart) {
         System.out.println("/apartments/update");
