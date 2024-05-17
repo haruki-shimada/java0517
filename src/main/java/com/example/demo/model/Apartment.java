@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "apartment")
-public class Occupant implements ApartmentInterface {
+public class Apartment implements ApartmentInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
