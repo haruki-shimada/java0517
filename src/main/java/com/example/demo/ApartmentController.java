@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.data.ApartmentInterface;
 import com.example.demo.data.ApartmentService;
+import com.example.demo.model.Apartment;
 
 @RestController
 public class ApartmentController {
@@ -31,4 +33,10 @@ public class ApartmentController {
         return service.getById(id);
     }
 
+    @PostMapping("/apartments/create")
+    @CrossOrigin
+    public ApartmentInterface createApartment(Apartment apart) {
+        System.out.println("/apartments/create");
+        return service.create(apart);
+    }
 }

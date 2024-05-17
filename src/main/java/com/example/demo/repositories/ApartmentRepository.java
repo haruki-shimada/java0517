@@ -10,4 +10,7 @@ import com.example.demo.model.Apartment;
 @Repository
 public interface ApartmentRepository extends JpaRepository<Apartment, Integer> {
     public Optional<Apartment> findById(int id);
+
+    @SuppressWarnings("unchecked")
+    public Apartment save(Apartment apart);
 }
