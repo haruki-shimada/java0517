@@ -27,4 +27,10 @@ public class ApartmentService {
         System.out.println("Service:create");
         return repository.save(apart);
     }
+
+    public void deleteById(int id) {
+        System.out.println("Service:delete");
+        repository.deleteById(id);
+        return;
+    }
 }

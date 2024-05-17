@@ -39,4 +39,12 @@ public class ApartmentController {
         System.out.println("/apartments/create");
         return service.create(apart);
     }
+
+    @PostMapping("/apartments/{id}/delete")
+    @CrossOrigin
+    public void deleteApartment(@PathVariable int id) {
+        System.out.println("/apartments/id/delete");
+        service.deleteById(id);
+        return;
+    }
 }
