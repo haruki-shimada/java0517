@@ -17,17 +17,18 @@ public class ApartmentController {
     @Autowired
     ApartmentService service;
 
-    @GetMapping("/occupants")
+    @GetMapping("/apartments")
     @CrossOrigin
-    public List<? extends ApartmentInterface> occupant() {
-        System.out.println("/occupants");
+    public List<? extends ApartmentInterface> apartments() {
+        System.out.println("/apartments");
         return service.getAll();
     }
 
-    @GetMapping("/occupants/{id}")
+    @GetMapping("/apartments/{id}")
     @CrossOrigin
-    public ApartmentInterface occupantById(@PathVariable int id) {
-        System.out.println("/occupants/findById");
+    public ApartmentInterface apartmentById(@PathVariable int id) {
+        System.out.println("/apartments/findById");
         return service.getById(id);
     }
+
 }
