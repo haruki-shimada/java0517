@@ -17,6 +17,6 @@ public class ApartmentService {
 
     public ApartmentInterface getById(int id) {
         System.out.println("Service:getById[" + id + "]");
-        return repository.findById.orElse(null);
+        return repository.findById(id).orElse(null);
     }
 }
