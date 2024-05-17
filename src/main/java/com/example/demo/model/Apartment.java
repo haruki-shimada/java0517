@@ -14,25 +14,25 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "apartment")
 public class Apartment implements ApartmentInterface {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
+	private int id;
 
-    @Column(nullable = false)
-    private String name;
+	@Column(nullable = false)
+	private String name;
 
-    @Column(nullable = false)
-    private String address;
+	@Column(nullable = false)
+	private String address;
 
-    @Column
-    private String salesrep;
+	@Column
+	private String salesrep;
 
-    @Column
-    private float floorarea;
+	@Column
+	private float floorarea;
 
-    @Column
-    private Date registerdate;
+	@Column
+	private Date registerdate;
 
 	public int getId() {
 		return id;
@@ -81,6 +81,5 @@ public class Apartment implements ApartmentInterface {
 	public void setRegisterdate(Date registerdate) {
 		this.registerdate = registerdate;
 	}
-    
-    
+
 }
